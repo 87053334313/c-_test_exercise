@@ -1,6 +1,6 @@
-﻿﻿#define _CRT_SECURE_NO_WARNINGS
+﻿
 #include<iostream>
-
+#include<string>
 using namespace std;
 
 class Fraction;
@@ -58,10 +58,7 @@ public:
 	Fraction(double num) 
 	{
 		integer = (int)num;
-		numerator = 0.;
-		denominator = 0;
-		double eps = 0.0000001;
-		func(num,eps,numerator,denominator);
+		double ostatok = num - integer;
 	}
 	Fraction(int numerator, int denominator)
 	{
@@ -128,7 +125,7 @@ public:
 	{
 		return integer + (double)numerator / denominator;
 	}
-
+	/*
 	void func(double num, double eps, int& ch, int& zn)
 	{
 		int a = 1; int b = 1;
@@ -177,6 +174,7 @@ public:
 			mn++;
 		}
 	}
+	*/
 
 	//					Methos:
 	Fraction& to_improper()
@@ -303,10 +301,10 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 	else if (obj.get_integer() == 0)os << 0;
 	return os;
 }
-
+/*
 std::istream& operator>>(std::istream& is, Fraction& obj)
 {
-	/*int integer, numerator, denominator;
+	int integer, numerator, denominator;
 	is >> integer >> numerator >> denominator;
 	obj.set_integer(integer);
 	obj.set_numerator(numerator);
@@ -317,7 +315,8 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 	1/2
 	5(1/2)
 	-----------------------------
-	*/
+	
+	/*
 	const int SIZE = 256;
 	char sz_buffer[SIZE]{};
 	is >> sz_buffer;
@@ -340,6 +339,7 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 
 	return is;
 }
+*/
 
 //#define CONSTRUCTORS_CHECK
 //#define ARITHMETICAL_OPERATORS_CHECK
@@ -348,6 +348,7 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 //#define TYPE_CONVERSIONS_BASICS
 //#define CONVERSIONS_FROM_OTHER_TO_CLASS
 //#define CONVERSIONS_FROM_CLASS_TO_OTHER
+
 #define CONVERSIONS_HOME_WORK
 
 void main()
